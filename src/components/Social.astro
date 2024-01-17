@@ -1,0 +1,15 @@
+---
+const { platform, username } = Astro.props;
+
+const linkColor = "crimson";
+---
+
+<style define:vars={{ linkColor }}>
+  .social {
+    color: var(--linkColor);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+</style>
+<a class="social" href={`https://www.${platform}.com/${username}`}>{platform}</a
+>

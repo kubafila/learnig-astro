@@ -1,5 +1,8 @@
 ---
-
+import "../styles/global.css";
+const pageTitle = "about";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -8,12 +11,16 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
+
     <h1>Hello Astro 🚀</h1>
+    <Footer platform="github" username="kubafila" />
+
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
