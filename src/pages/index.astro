@@ -1,26 +1,10 @@
 ---
-import "../styles/global.css";
-const pageTitle = "about";
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Homepage";
+import Greeting from "../components/Greetings";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Navigation />
-
-    <h1>Hello Astro 🚀</h1>
-    <Footer platform="github" username="kubafila" />
-
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h1>Hello Astro 🚀</h1>
+  <Greeting client:load messages={["hello", "hi", "welcome"]} />
+</BaseLayout>

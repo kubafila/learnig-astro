@@ -1,48 +1,16 @@
 ---
-import "../styles/global.css";
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
-const pageTitle = "blog";
+const pageTitle = "Blog";
+import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Navigation />
-    <h1>Blog</h1>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus nisi
-      deserunt assumenda, quo voluptas beatae sunt illum fuga numquam dolore
-      accusamus repellendus nobis, expedita et! Maxime, architecto! Excepturi
-      magnam repellendus cupiditate fuga distinctio ea deserunt. Ad totam nam
-      praesentium aliquam laborum harum recusandae accusantium commodi ducimus
-      obcaecati saepe ipsa, delectus eligendi possimus ratione quaerat facilis
-      quasi, enim adipisci quos, assumenda aspernatur animi provident! Ut
-      numquam nostrum quibusdam unde dolorem id a optio, doloribus quia ullam
-      impedit quos earum dolore excepturi deleniti assumenda culpa in, ipsam
-      pariatur cum. Nobis, porro provident sunt commodi cumque labore enim
-      nostrum fugiat ullam omnis rem, tempore, officia voluptatum! Quasi dolores
-      laboriosam repellat veritatis, quidem ad rem voluptate explicabo saepe!
-      Assumenda, aliquam. Similique, repellat repellendus amet porro
-      necessitatibus natus consequatur odit, nobis possimus expedita provident
-      qui sunt excepturi ratione nemo adipisci itaque eveniet. Praesentium
-      magnam, ipsam ea illo consectetur molestias quidem provident dignissimos
-      at perspiciatis recusandae iusto possimus assumenda, aut laborum eum
-      reiciendis facilis, placeat iure? Quam incidunt quos facere delectus
-      aperiam ea fugiat, maiores reiciendis, numquam distinctio excepturi eius
-      error harum quod sapiente labore nesciunt exercitationem quas odio totam,
-      deserunt beatae? Id architecto sequi dolore aliquid dolor voluptate nam
-      saepe alias, magnam animi praesentium non?
-    </p>
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h1>My Astro Learning Blog</h1>
+  <p>This is where I will post about my journey learning Astro.</p>
+
+  <ul>
+    {allPosts.map((post) => <BlogPost post={post} />)}
+  </ul>
+</BaseLayout>
